@@ -55,8 +55,8 @@ class InteractiveRecord
   end
 
   def self.find_by(attribute_hash)
-    #binding.pry
     sql = "SELECT * FROM #{self.table_name} WHERE #{attribute_hash.keys.first} = '#{attribute_hash.values.first}'"
+    #need quotes around value b/c it's a string but don't want quotes around key b/c its a symbol
     DB[:conn].execute(sql)
   end
 
